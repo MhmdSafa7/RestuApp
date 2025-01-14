@@ -52,7 +52,7 @@
                     <h2 class="ftco-heading-2">By:</h2>
                     <ul class="list-unstyled open-hours">
                         <li class="d-flex"><span>Mohammad Safa</span><span>10121365</li>
-                        <li class="d-flex"><span>Hussein Zorkot</span><span></li>
+                        <li class="d-flex"><span>Hussein Zorkot</span><span>10121326</li>
 
 
                     </ul>
