@@ -19,3 +19,7 @@ Route::post('/newres', 'App\Http\Controllers\reservationController@store');
 Route::resource('feedback', 'App\Http\Controllers\feedbackController');
 Route::post('/newfeedback', 'App\Http\Controllers\feedbackController@store');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

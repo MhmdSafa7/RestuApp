@@ -31,7 +31,7 @@
          <p><a href="/reservation" class="btn btn-primary">RESERVATION</a></p>
        </div>
      </div>
-     
+
    </div>
    </div>
    </section>
