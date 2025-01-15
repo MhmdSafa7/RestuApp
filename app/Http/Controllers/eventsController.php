@@ -37,12 +37,15 @@ class eventsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'desc' => 'required',
+
+        $request->validate([
+           'desc' => 'required',
             'enddate' => 'required',
             'src' => 'required',
-
         ]);
+
+
+        
 
         $post = new event;
         $post->desc =  $request->input('desc');

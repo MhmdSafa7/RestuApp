@@ -39,13 +39,15 @@ class offersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+        $request->validate([
             'offername' => 'required',
             'desc' => 'required',
             'price' => 'required',
             'src' => 'required',
-
         ]);
+
+       
 
         $post = new offer;
         $post->offername =  $request->input('offername');

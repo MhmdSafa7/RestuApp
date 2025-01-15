@@ -43,12 +43,14 @@ class feedbackController extends Controller
 
        /// print_r($request->input());
 
-        $this->validate($request, [
-            'name' => 'required',
+       $request->validate([
+        'name' => 'required',
             'email' => 'required',
             'star' => 'required',
-            'message' => 'required'
-        ]);
+            'message' => 'required',
+    ]);
+
+       
 
         $post = new feedback;
         $post->name =  $request->input('name');

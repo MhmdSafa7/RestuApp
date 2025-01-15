@@ -40,13 +40,15 @@ class reservationcontroller extends Controller
 
         ///print_r($request->input());
 
-        $this->validate($request, [
-            'name' => 'required',
+        $request->validate([
+           'name' => 'required',
             'email' => 'required',
             'phonenumber' => 'required',
             'date' => 'required',
             'time' => 'required'
         ]);
+
+       
 
         $post = new reservation;
         $post->name =  $request->input('name');
