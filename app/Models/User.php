@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -37,4 +38,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'SUPER_ADMIN';
+    }
+
+    /**
+     * Check if the user is an editor.
+     *
+     * @return bool
+     */
+    public function isEditor()
+    {
+        return $this->role === 'EDITOR';
+    }
+
+    /**
+     * Check if the user is a moderator.
+     *
+     * @return bool
+     */
+    public function isModerator()
+    {
+        return $this->role === 'MODERATOR';
+    }
+
 }

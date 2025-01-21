@@ -1,11 +1,13 @@
 <?php
+// filepath: /c:/maaref/capstone project/resto1/app/Http/Middleware/IsModerator.php
+
 
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ForAdmins
+class IsModerator
 {
     /**
      * Handle an incoming request.
@@ -16,7 +18,7 @@ class ForAdmins
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->isAdmin()) {
+        if (Auth::check() && Auth::user()->isModerator()) {
             return $next($request);
         }
 
