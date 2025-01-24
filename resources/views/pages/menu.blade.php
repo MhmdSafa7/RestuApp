@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
         data-stellar-background-ratio="0.5">
@@ -25,14 +24,13 @@
                     <h2 class="mb-4">Our Menu</h2>
                 </div>
             </div>
-            <div>
                 
-                <form action="/add-to-order" method="POST">
-                    
+                <form action="{{route('order.add')}}" method="Post">
+                    @csrf
+                    <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" value="1" min="1">
-                    <button type="submit"> Add to Order </button>
+                    <button type="submit">Add to Order</button>
                 </form>
-            </div>
             
             <div class="row">
                 
