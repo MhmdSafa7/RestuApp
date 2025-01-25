@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<!-- filepath: /c:/maaref/capstone project/resto1/resources/views/inc/navbar.blade.php -->
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
 <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
@@ -35,16 +31,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
-<<<<<<< HEAD
 
         </button>
-=======
-        </button>
-
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
         @auth
             @if (Auth::check())
-                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->name }}</h4>
+                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->role }}</h4>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
                     @csrf
 
@@ -54,183 +45,6 @@
             @endif
         @endauth
 
-<<<<<<< HEAD
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-
-
-                @if (!Auth::check())
-                    <li
-                        class="nav-item
-                @if (Request::is('/')) active @endif
-                ">
-                        <a href="/" class="nav-link">Home</a>
-                    </li>
-                @endif
-
-
-                @if (!Auth::check())
-                    <li class="nav-item @if (Request::is('about')) active @endif"><a href="/about"
-                            class="nav-link">About</a></li>
-                @endif
-
-
-                @if (!Auth::check())
-                    <li
-                        class="nav-item
-                    @if (Request::is('menu')) active @endif
-                    ">
-                        <a href="/menu" class="nav-link">Menu
-                        </a>
-                    </li>
-                @endif
-
-
-                @if (!Auth::check())
-                    <li
-                        class="nav-item
-                @if (Request::is('reservation')) active @endif
-                ">
-                        <a href="/reservation" class="nav-link">Reservation</a>
-                    </li>
-                @endif
-
-
-                @if (!Auth::check())
-                    <li
-                        class="nav-item
-                @if (Request::is('feedback')) active @endif
-                ">
-                        <a href="/feedback" class="nav-link">feedback</a>
-                    </li>
-                @endif
-
-
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                @if (Request::is('register')) active @endif
-                ">
-                            <a href="/register" class="nav-link">Register</a>
-                        </li>
-                    @endif
-                @endif
-
-                {{-- //////////////////////////////////////////////////////////////////////////////////////////// --}}
-
-
-                {{-- Products for editor --}}
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                     @if (Request::is('product')) active @endif
-                 ">
-                            <a href="/product" class="nav-link">Products</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->role == 'EDITOR')
-                        <li
-                            class="nav-item
-                     @if (Request::is('product')) active @endif
-                 ">
-                            <a href="/product" class="nav-link">Products</a>
-                        </li>
-                    @endif
-                @endif
-
-
-                {{-- Feedbacks for moderator  feedbackview--}}
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                     @if (Request::is('feedbackview')) active @endif
-                 ">
-                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->role == 'MODERATOR')
-                        <li
-                            class="nav-item
-                     @if (Request::is('feedbackview')) active @endif
-                 ">
-                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
-                        </li>
-                    @endif
-                @endif
-
-
-
-                {{-- Reservations for moderator reservationview --}}
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                     @if (Request::is('reservationview')) active @endif
-                 ">
-                            <a href="/reservationview" class="nav-link">Reservations</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->role == 'MODERATOR')
-                        <li
-                            class="nav-item
-                     @if (Request::is('reservationview')) active @endif
-                 ">
-                            <a href="/reservationview" class="nav-link">Reservations</a>
-                        </li>
-                    @endif
-                @endif
-
-
-
-                {{-- Offers for editor offers --}}
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                     @if (Request::is('offers')) active @endif
-                 ">
-                            <a href="/offers" class="nav-link">Offers</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->role == 'EDITOR')
-                        <li
-                            class="nav-item
-                     @if (Request::is('offers')) active @endif
-                 ">
-                            <a href="/offers" class="nav-link">Offers</a>
-                        </li>
-                    @endif
-                @endif
-
-
-
-                {{-- Events for editor events --}}
-                @if (Auth::check())
-                    @if (Auth::user()->role == 'SUPER_ADMIN')
-                        <li
-                            class="nav-item
-                     @if (Request::is('events')) active @endif
-                 ">
-                            <a href="/events" class="nav-link">Events</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->role == 'EDITOR')
-                        <li
-                            class="nav-item
-                     @if (Request::is('events')) active @endif
-                 ">
-                            <a href="/events" class="nav-link">Events</a>
-                        </li>
-                    @endif
-                @endif
-
-
-
-
-=======
         @if (!Auth::check())
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
@@ -324,7 +138,6 @@
                         </div>
                     </li>
                 @endguest
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
             </ul>
         </div>
     </div>
