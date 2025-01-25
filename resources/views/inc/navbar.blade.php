@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<!-- filepath: /c:/maaref/capstone project/resto1/resources/views/inc/navbar.blade.php -->
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
 <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
@@ -31,8 +35,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
+<<<<<<< HEAD
 
         </button>
+=======
+        </button>
+
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
         @auth
             @if (Auth::check())
                 <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->name }}</h4>
@@ -45,6 +54,7 @@
             @endif
         @endauth
 
+<<<<<<< HEAD
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
 
@@ -220,6 +230,101 @@
 
 
 
+=======
+        @if (!Auth::check())
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Links for all users -->
+                        <li class="nav-item @if (Request::is('/')) active @endif">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('about')) active @endif">
+                            <a href="/about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('menu')) active @endif">
+                            <a href="/menu" class="nav-link">Menu</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('reservation')) active @endif">
+                            <a href="/reservation" class="nav-link">Reservation</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('feedback')) active @endif">
+                            <a href="/feedback" class="nav-link">Feedback</a>
+                        </li>
+        @endif
+
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <!-- Links for authenticated users based on roles -->
+                    @if (Auth::user()->isAdmin())
+                        <li class="nav-item (Request::is('register')) active ">
+                            <a href="/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('product')) active @endif">
+                            <a href="/product" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('feedbackview')) active @endif">
+                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('reservationview')) active @endif">
+                            <a href="/reservationview" class="nav-link">Reservations</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('offers')) active @endif">
+                            <a href="/offers" class="nav-link">Offers</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('events')) active @endif">
+                            <a href="/events" class="nav-link">Events</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->isEditor())
+                        <li class="nav-item @if (Request::is('product')) active @endif">
+                            <a href="/product" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('offers')) active @endif">
+                            <a href="/offers" class="nav-link">Offers</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('events')) active @endif">
+                            <a href="/events" class="nav-link">Events</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->isModerator())
+                        <li class="nav-item @if (Request::is('feedbackview')) active @endif">
+                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('reservationview')) active @endif">
+                            <a href="/reservationview" class="nav-link">Reservations</a>
+                        </li>
+                    @endif
+
+                    <!-- Logout Link -->
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
             </ul>
         </div>
     </div>

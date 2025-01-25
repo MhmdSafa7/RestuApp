@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -81,3 +82,21 @@
     </div>
 </body>
 </html>
+=======
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+                <div class="card-body">
+                    You are Admin.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e

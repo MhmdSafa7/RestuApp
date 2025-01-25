@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
         data-stellar-background-ratio="0.5">
@@ -24,6 +28,7 @@
                     <h2 class="mb-4">Our Menu</h2>
                 </div>
             </div>
+<<<<<<< HEAD
                 
                 <form action="{{route('order.add')}}" method="Post">
                     @csrf
@@ -34,6 +39,9 @@
             
             <div class="row">
                 
+=======
+            <div class="row">
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
                 {{-- begin --}}
                 @foreach ($menus as $menu)
                     <div class="col-md-6 col-lg-4">
@@ -68,5 +76,9 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
     @endsection
     
+=======
+@endsection
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e

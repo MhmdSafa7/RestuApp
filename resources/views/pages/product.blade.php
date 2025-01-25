@@ -88,6 +88,7 @@
     </section>
     {{-- end of form --}}
 
+<<<<<<< HEAD
     <?php foreach (Product::findAll() as $product): ?>
     <div>
         <h2><?= $product['name']; ?> - $<?= $product['price']; ?></h2>
@@ -99,5 +100,8 @@
     </div>
     <?php endforeach; ?>
     
+=======
+
+>>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
 
 @endsection
