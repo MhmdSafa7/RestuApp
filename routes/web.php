@@ -1,6 +1,6 @@
 <?php
 
-<<<<<<< HEAD
+
 use App\Http\Controllers\orderController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,8 +27,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-=======
-use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\IndexController;
@@ -77,4 +76,3 @@ Route::middleware(['auth', 'isModerator'])->group(function () {
     Route::get('/moderator/home', [HomeController::class, 'moderatorHome'])->name('moderator.home');
     // Other moderator routes...
 });
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e

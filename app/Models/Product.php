@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-<<<<<<< HEAD
     private static $products =[
         ['id' => 1, 'name' => 'Product 1', 'price' => 10],
         ['id' => 2, 'name' => 'Product 2', 'price' => 20],
@@ -22,7 +21,6 @@ class Product extends Model
         }
         return null;
     }
-=======
 
     public $timestamps=false;
 
@@ -32,6 +30,5 @@ class Product extends Model
     // Primary Key
     public $primaryKey='id';
 
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
     use HasFactory;
 }

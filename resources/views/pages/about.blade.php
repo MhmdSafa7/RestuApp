@@ -47,11 +47,7 @@
            <p><span>Address:</span><br> Airport Road, AlMaaref University, Block C, Cafeteria</p>
          </div>
        </div>
-<<<<<<< HEAD
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.7593383941967!2d35.497603675598064!3d33.84431652868107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f1922fd8dd6e9%3A0x1d20e98f09f44332!2zQWwgTWFhcmVmIFVuaXZlcnNpdHkgLSBCbG9jayBDINis2KfZhdi52Kkg2KfZhNmF2LnYp9ix2YE!5e0!3m2!1sen!2slb!4v1737498321310!5m2!1sen!2slb" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-=======
        <iframe src="https://www.google.com/maps/place/Al+Maaref+University+-+Block+C+%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%B1%D9%81%E2%80%AD/@33.8443165,35.4976037,17z/data=!3m1!4b1!4m15!1m8!3m7!1s0x151f1922fd8dd6e9:0x1d20e98f09f44332!2zQWwgTWFhcmVmIFVuaXZlcnNpdHkgLSBCbG9jayBDINis2KfZhdi52Kkg2KfZhNmF2LnYp9ix2YE!8m2!3d33.8443121!4d35.5001786!10e1!16s%2Fg%2F11vbcqk5rq!3m5!1s0x151f1922fd8dd6e9:0x1d20e98f09f44332!8m2!3d33.8443121!4d35.5001786!16s%2Fg%2F11vbcqk5rq?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
->>>>>>> fafad3d9bb1ebe1d47cd1dfe745a38b46e59e29e
       </div>
     </div>
    </section>
