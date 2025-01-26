@@ -78,7 +78,7 @@
                     @endif
                 @else
                     <!-- Links for authenticated users based on roles -->
-                    @if (Auth::user()->isAdmin())
+                    @if (Auth::check())
                         <li class="nav-item (Request::is('register')) active ">
                             <a href="/register" class="nav-link">Register</a>
                         </li>

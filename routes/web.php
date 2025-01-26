@@ -26,26 +26,49 @@ Route::post('/newres', [ReservationController::class, 'store'])->name('reservati
 Route::resource('feedback', FeedbackController::class);
 Route::post('/newfeedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-// Authentication Routes
-Auth::routes();
+// Admin  ///////////////////////
+//////////
 
-// Home
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// Admin Routes
+Auth::routes(['register' => false]);
+
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');//->middleware('isAdmin');
+
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    // Other admin routes...
+
+    Route::post('register', [RegisterController::class, 'register']);
+    Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('adminHome', 'App\Http\Controllers\HomeController@adminView')->name('admin.view');
+
+    // Admin Feedback
+    Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
+
+// Admin Reservation
+    Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
+
+// Admin Product
+    Route::resource('/product', 'App\Http\Controllers\ProductController');
+    Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
+    Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
+
+//Admin offers
+    Route::resource('/offers', 'App\Http\Controllers\offersController');
+    Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
+    Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
+
+//Admin events
+    Route::resource('/events', 'App\Http\Controllers\eventsController');
+    Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
+    Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
 });
 
-// Editor Routes
-Route::middleware(['auth'])->group(function () {
-    Route::get('/editor/home', [HomeController::class, 'adminHome'])->name('editor.home');
-    // Other editor routes...
-});
+/////////////////////////////////////////////////////////////////////////////////////
 
-// Moderator Routes
-Route::middleware(['auth'])->group(function () {
-    Route::get('/moderator/home', [HomeController::class, 'adminHome'])->name('moderator.home');
-    // Other moderator routes...
-});
+
+
+
+
+
+
