@@ -22,12 +22,7 @@
                     <span class="subheading">Specialties</span>
                     <h2 class="mb-4">Our Menu</h2>
                 </div>
-                <form action="{{route('order.add')}}" method="Post">
-                    @csrf
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" style="color: black">
-                    <button type="submit">Add to Order</button>
-                </form>
+            </div>
             <div class="row">
                 {{-- begin --}}
                 @foreach ($menus as $menu)
@@ -63,3 +58,4 @@
             </div>
         </div>
     </section>
+@endsection

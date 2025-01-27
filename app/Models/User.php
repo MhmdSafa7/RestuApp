@@ -2,24 +2,20 @@
 
 namespace App\Models;
 
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
-
      * @var list<string>
-     * @var array
      */
     protected $fillable = [
         'name',
@@ -40,7 +36,6 @@ class User extends Authenticatable
     ];
 
     /**
-
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -52,8 +47,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    /** 
-     * The attributes that should be cast to native types.
+
+    /** The attributes that should be cast to native types.
      *
      * @var array
      */
@@ -66,10 +61,21 @@ class User extends Authenticatable
      *
      * @return bool
      */
-    public function isAdmin()
-    {
-        return $this->is_admin === 1;
-    }
+    // public function isAdmin()
+    // {
+    //     return $this->is_admin === 1;
+    // }
+
+    /**
+ * Check if the user is an admin, editor, or moderator.
+ *
+ * @return bool
+ */
+public function isAdmin()
+{
+    $role = strtolower($this->role);
+    return $this->role === 'admin';
+}
 
         public function isEditor()
     {
@@ -80,4 +86,5 @@ class User extends Authenticatable
     {
         return $this->role === 'moderator';
     }
+
 }

@@ -1,4 +1,3 @@
-<!-- filepath: /c:/maaref/capstone project/resto1/resources/views/inc/navbar.blade.php -->
 <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
@@ -32,11 +31,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
-        </button>
 
+        </button>
         @auth
             @if (Auth::check())
-                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->name }}</h4>
+                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->role }}</h4>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
                     @csrf
 
@@ -79,7 +78,7 @@
                     @endif
                 @else
                     <!-- Links for authenticated users based on roles -->
-                    @if (Auth::user()->isAdmin())
+                    @if (Auth::check())
                         <li class="nav-item (Request::is('register')) active ">
                             <a href="/register" class="nav-link">Register</a>
                         </li>
