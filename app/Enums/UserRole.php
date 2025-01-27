@@ -11,7 +11,16 @@ use BenSampo\Enum\Enum;
  */
 final class UserRole extends Enum
 {
-    const SUPER_ADMIN =   'SUPER_ADMIN';
+    const ADMIN =   'ADMIN';
     const MODERATOR =   'MODERATOR';
     const EDITOR = 'EDITOR';
+
+    public static function getValues(array|string|null $keys = null): array
+    {
+        return [
+            self::ADMIN,
+            self::EDITOR,
+            self::MODERATOR,
+        ];
+    }
 }
