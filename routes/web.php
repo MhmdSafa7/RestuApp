@@ -8,6 +8,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\StatisticsController;
 
 // Home Index
 Route::resource('/', IndexController::class);
@@ -44,21 +45,24 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Feedback
     Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
+    // feedback chart
+    Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
 
-// Admin Reservation
+
+    // Admin Reservation
     Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
 
-// Admin Product
+    // Admin Product
     Route::resource('/product', 'App\Http\Controllers\ProductController');
     Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
     Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
 
-//Admin offers
+    //Admin offers
     Route::resource('/offers', 'App\Http\Controllers\offersController');
     Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
     Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
 
-//Admin events
+    //Admin events
     Route::resource('/events', 'App\Http\Controllers\eventsController');
     Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
     Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
