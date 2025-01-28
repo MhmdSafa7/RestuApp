@@ -23,11 +23,11 @@ class FeedbackChart extends Chart
         // Set dataset with rating counts
         $this->dataset('Feedback by Star Ratings', 'pie', [$rate1, $rate2, $rate3, $rate4, $rate5])
              ->backgroundColor([
-                 '#f48c06', // 1 star
-                 '#e85d04', // 2 stars
-                 '#dc2f02', // 3 stars
-                 '#d00000', // 4 stars
-                 '#9d0208', // 5 stars
+                 '#8B0000', // 1 star
+                 '#DC143C', // 2 stars
+                 '#CC5500', // 3 stars
+                 '#556B2F', // 4 stars
+                 '#003049', // 5 stars
              ]);
     }
 }

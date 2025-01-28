@@ -13,6 +13,8 @@
     </div>
 </section>
 
+
+
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -28,6 +30,25 @@
     </div>
 </section>
 
+<div style="width: 80%; height: 2px; background-color: red; margin: 20px auto;"></div>
+
+<section class="ftco-section">
+    <div class="container">
+         <!-- Bar Graph Section -->
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Analytics</span>
+                <h2 class="mb-4">Reservation Statistics</h2>
+            </div>
+        </div>
+        <div style="width: 80%; margin: auto; margin-bottom: 30px;">
+            {!! $reservationChart->container() !!}
+        </div>
+
+
+    </div>
+</section>
+
 <!-- You can include your footer here -->
 <footer>
     <div class="container">
@@ -37,4 +58,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {{ $chart->script() }}
+{{ $reservationChart->script() }}
+
 @endsection

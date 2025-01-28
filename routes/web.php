@@ -51,6 +51,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Reservation
     Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
+    // In routes/api.php
+    Route::get('/reservations/data', [ReservationController::class, 'getReservationsData']);
+
 
     // Admin Product
     Route::resource('/product', 'App\Http\Controllers\ProductController');
