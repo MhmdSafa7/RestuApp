@@ -50,10 +50,6 @@
     </section>
     <br>
 
-
-
-
-    {{-- for form --}}
     <section>
         <div class="main-block">
             <h1>Add Product</h1>
@@ -76,23 +72,16 @@
 
                 </div>
 
-
-
-
-
-
-
                 <button type="submit" class="button1">Add</button>
             </form>
         </div>
     </section>
-    {{-- end of form --}}
 
-    <?php foreach (Product::findAll() as $product): ?>
+   <?php foreach ($products as $product): ?>
     <div>
-        <h2><?= $product['name']; ?> - $<?= $product['price']; ?></h2>
+        <h2>{{$products->name}} - {{$product->price}}</h2>
         <form action="/add-to-order" method="POST">
-            <input type="hidden" name="productId" value="<?= $product['id']; ?>">
+            <input type="hidden" name="productId" value="{{$product->id}}">
             <input type="number" name="quantity" value="1" min="1">
             <button type="submit"> Add to Order </button>
         </form>
