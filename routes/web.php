@@ -18,8 +18,10 @@ Route::resource('/about', AboutController::class);
 // Menu
 Route::resource('/menu', MenuController::class);
 Route::get('/', [MenuController::class, 'index'])->name('menu.index');
-Route::get('/add-to-order/{id}', [MenuController::class, 'addToOrder'])->name('menu.add');
-Route::get('/clear-order', [MenuController::class, 'clearOrder'])->name('menu.clear');
+Route::post('/menu/add/{productId}', [MenuController::class, 'addProduct'])->name('menu.add');
+Route::post('/menu/remove/{productId}', [MenuController::class, 'removeProduct'])->name('menu.remove');
+
+
 
 // Reservation
 Route::resource('/reservation', ReservationController::class);

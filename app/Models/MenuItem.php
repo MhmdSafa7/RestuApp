@@ -2,18 +2,25 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MenuItem extends Model
 {
-    public $timestamps=false;
+    public function up()
+    {
+        Schema::create('menu_items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+        });
+    }
 
-    // Table name
-    public $table='menu_items';
-
-    // Primary Key
-    public $primaryKey='id';
-
-    use HasFactory;
-}
+    public function down()
+    {
+        Schema::dropIfExists('menu_items');
+    }
+};

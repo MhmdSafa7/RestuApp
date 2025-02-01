@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class order extends Model
 {
 private $items=[];
-
 public function addItem($product, $quantity){
     $productId = $product['id'];
 
