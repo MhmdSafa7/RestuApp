@@ -35,15 +35,17 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,  // Keep in 'web' group
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // Remove any CSRF-related middleware here
         ],
     ];
+
 
     /**
      * The application's route middleware.
@@ -64,5 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'IsAdminMiddleware' => \App\Http\Middleware\IsAdminMiddleware::class,
         'forAdmins' => \App\Http\Middleware\ForAllAdmins::class,
+
     ];
 }

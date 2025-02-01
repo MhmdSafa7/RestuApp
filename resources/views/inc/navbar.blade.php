@@ -97,6 +97,9 @@
                         <li class="nav-item @if (Request::is('events')) active @endif">
                             <a href="/events" class="nav-link">Events</a>
                         </li>
+                        <li class="nav-item @if (Request::is('statistics')) active @endif">
+                            <a href="/statistics" class="nav-link">Statistics</a>
+                        </li>
                     @endif
                     @if (Auth::user()->isEditor())
                         <li class="nav-item @if (Request::is('product')) active @endif">

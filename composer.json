@@ -8,9 +8,12 @@
     "require": {
         "php": "^8.2",
         "bensampo/laravel-enum": "^6.11",
+        "consoletvs/charts": "^6.7",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "laravel/ui": "^4.6"
+        "laravel/ui": "^4.6",
+        "openai-php/client": "^0.10.3",
+        "openai-php/laravel": "^0.10.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

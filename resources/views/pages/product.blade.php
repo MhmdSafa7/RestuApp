@@ -77,16 +77,17 @@
         </div>
     </section>
 
-   <?php foreach ($products as $product): ?>
+    @foreach ($products as $product)
     <div>
-        <h2>{{$products->name}} - {{$product->price}}</h2>
+        <h2>{{ $product->name }} - ${{ $product->price }}</h2>
         <form action="/add-to-order" method="POST">
-            <input type="hidden" name="productId" value="{{$product->id}}">
+            @csrf
+            <input type="hidden" name="productId" value="{{ $product->id }}">
             <input type="number" name="quantity" value="1" min="1">
             <button type="submit"> Add to Order </button>
         </form>
     </div>
-    <?php endforeach; ?>
+    @endforeach
 
 
 @endsection
