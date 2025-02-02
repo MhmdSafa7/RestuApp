@@ -19,7 +19,6 @@ Route::resource('/about', AboutController::class);
 
 // Menu
 Route::resource('/menu', MenuController::class);
-Route::get('/', [MenuController::class, 'index'])->name('menu.index');
 Route::post('/menu/add/{productId}', [MenuController::class, 'addProduct'])->name('menu.add');
 Route::post('/menu/remove/{productId}', [MenuController::class, 'removeProduct'])->name('menu.remove');
 

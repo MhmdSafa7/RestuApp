@@ -21,7 +21,7 @@ class offersController extends Controller
         return view('pages.offers')->with('offers', $offers);
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,7 +56,7 @@ class offersController extends Controller
             dd($request->all());
         }
         $post->save();
-        return redirect('/offers');
+        return response()->json(['success' => 'Offer deleted successfully']);
     }
 
 

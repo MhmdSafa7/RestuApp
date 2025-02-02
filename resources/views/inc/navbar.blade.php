@@ -67,21 +67,19 @@
         @endif
 
                 <!-- Authentication Links -->
-                @guest
+                {{-- @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
+                    </li> --}}
+                    {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @else
+                @else --}}
                     <!-- Links for authenticated users based on roles -->
                     @if (Auth::check())
-                        <li class="nav-item (Request::is('register')) active ">
-                            <a href="/register" class="nav-link">Register</a>
-                        </li>
+
                         <li class="nav-item @if (Request::is('product')) active @endif">
                             <a href="/product" class="nav-link">Products</a>
                         </li>
@@ -101,7 +99,7 @@
                             <a href="/statistics" class="nav-link">Statistics</a>
                         </li>
                     @endif
-                    @if (Auth::user()->isEditor())
+                    {{-- @if (Auth::user()->isEditor())
                         <li class="nav-item @if (Request::is('product')) active @endif">
                             <a href="/product" class="nav-link">Products</a>
                         </li>
@@ -119,10 +117,10 @@
                         <li class="nav-item @if (Request::is('reservationview')) active @endif">
                             <a href="/reservationview" class="nav-link">Reservations</a>
                         </li>
-                    @endif
+                    @endif --}}
 
                     <!-- Logout Link -->
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -138,9 +136,9 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                        </div>
+                        </div> --}}
                     </li>
-                @endguest
+                {{-- @endguest --}}
             </ul>
         </div>
     </div>

@@ -53,7 +53,7 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function addProduct(Request $request, $productId)
+    public function addProduct(Request $request, $productId): \Illuminate\Http\RedirectResponse
 {
     $product = Product::findOrFail($productId);
 
