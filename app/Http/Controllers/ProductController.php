@@ -8,7 +8,7 @@ use App\Models\Menu;
 
 class ProductController extends Controller
 {
-     
+
     public function index()
     {
 
@@ -34,7 +34,7 @@ class ProductController extends Controller
             'price' => 'required',
             'src' => 'required',
             'menu_type' => 'required',
-            'quantity' => 'quantity',
+
         ]);
 
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
         $prod->price =  $request->input('price');
         $prod->description = $request->input('desc');
         $prod->menu_id = $request->input('menu_type');
-        $prod->quantity = $request->input('quantity');
+        
 
 
         //dd($request->all());

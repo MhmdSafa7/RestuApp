@@ -50,6 +50,10 @@
     </section>
     <br>
 
+
+
+
+    {{-- for form --}}
     <section>
         <div class="main-block">
             <h1>Add Product</h1>
@@ -72,10 +76,18 @@
 
                 </div>
 
+
+
+
+
+
+
                 <button type="submit" class="button1">Add</button>
             </form>
         </div>
     </section>
+    {{-- end of form --}}
+
 
 
 @endsection

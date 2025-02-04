@@ -10,6 +10,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\orderController;
+
 
 // Home Index
 Route::resource('/', IndexController::class);
@@ -22,7 +24,9 @@ Route::resource('/menu', MenuController::class);
 Route::post('/menu/add/{productId}', [MenuController::class, 'addProduct'])->name('menu.add');
 Route::post('/menu/remove/{productId}', [MenuController::class, 'removeProduct'])->name('menu.remove');
 
-
+//order
+// Route::post('/order/add/{productId}', [orderController::class, 'addToOrder'])->name('order.add');
+// Route::post('/order/remove/{productId}', [orderController::class, 'removeFromOrder'])->name('order.remove');
 
 // Reservation
 Route::resource('/reservation', ReservationController::class);

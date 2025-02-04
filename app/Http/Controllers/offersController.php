@@ -56,7 +56,7 @@ class offersController extends Controller
             dd($request->all());
         }
         $post->save();
-        return response()->json(['success' => 'Offer deleted successfully']);
+        return redirect('/offers');
     }
 
 

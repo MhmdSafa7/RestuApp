@@ -56,9 +56,9 @@
                 <h2 class="mb-4">Orders Statistics</h2>
             </div>
         </div>
-        <div style="width: 80%; margin: auto; margin-bottom: 30px; background-color: #F5DEB3;"> <!-- Warm Beige -->
+        {{-- <div style="width: 80%; margin: auto; margin-bottom: 30px; background-color: #F5DEB3;"> <!-- Warm Beige -->
             {!! $ordersChart->container() !!}
-        </div>
+        </div> --}}
     </div>
 </section>
 
@@ -75,5 +75,5 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {{ $chart->script() }}
 {{ $reservationChart->script() }}
-{{ $ordersChart->script() }} <!-- Added script for orders chart -->
+{{-- {{ $ordersChart->script() }} <!-- Added script for orders chart --> --}}
 @endsection
