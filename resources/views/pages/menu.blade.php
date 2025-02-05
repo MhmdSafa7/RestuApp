@@ -1,5 +1,10 @@
 @extends('layout.app')
 @section('content')
+
+<style>
+    body {background-color: #ddd;}
+</style>
+
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -41,10 +46,6 @@
                                             <h3>{{ $product->name }}</h3>
                                             <p>{{ $product->description }}</p>
                                             <p class="price">{{ $product->price }} {{ $product->currency }}</p>
-                                            {{-- <form action="{{ route('menu.add', ['productId' => $product->id]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary">Add to Order</button>
-                                            </form> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -55,6 +56,7 @@
             </div>
         </div>
     </section>
+    
 
     <section class="ftco-section">
         <div class="container">

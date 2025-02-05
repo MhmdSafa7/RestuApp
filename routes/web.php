@@ -35,7 +35,7 @@ Route::post('/newfeedback', [FeedbackController::class, 'store'])->name('feedbac
 
 // Chatbot Route
 Route::post('/sendchat', [ChatbotController::class, 'SendChat'])->name('chatbot.send');
-Route::get('/chatbot', function () { return view('chatbot'); });
+Route::get('/chatbot', function () { return view('pages.chatbot'); });
 
 
 
@@ -52,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
     // Admin Access
-    Route::middleware(['isAdmin'])->group(function () {
+   // Route::middleware(['isAdmin'])->group(function () {
     //feedback
         Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
     //reservations
@@ -73,35 +73,35 @@ Route::middleware(['auth'])->group(function () {
     //statistics
         Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
 
-    });
+    
 
-    // Editor Access (Products, Offers, Events)
-    Route::middleware(['isEditor'])->group(function () {
+    // // Editor Access (Products, Offers, Events)
+    // Route::middleware(['isEditor'])->group(function () {
 
-    //product
-        Route::resource('/product', 'App\Http\Controllers\ProductController');
-        Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
-        Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
-    //offers
-        Route::resource('/offers', 'App\Http\Controllers\offersController');
-        Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
-        Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
-    //events
-        Route::resource('/events', 'App\Http\Controllers\eventsController');
-        Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
-        Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
-    });
+    // //product
+    //     Route::resource('/product', 'App\Http\Controllers\ProductController');
+    //     Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
+    //     Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
+    // //offers
+    //     Route::resource('/offers', 'App\Http\Controllers\offersController');
+    //     Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
+    //     Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
+    // //events
+    //     Route::resource('/events', 'App\Http\Controllers\eventsController');
+    //     Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
+    //     Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
+    // });
 
-    // Moderator Access (Feedback, Reservations, Statistics)
-    Route::middleware(['isModerator'])->group(function () {
-    //feedback
-        Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
-    //reservations
-        Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
-        Route::get('/reservations/data', [ReservationController::class, 'getReservationsData']);
-    //statistics
-        Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
-    });
+    // // Moderator Access (Feedback, Reservations, Statistics)
+    // Route::middleware(['isModerator'])->group(function () {
+    // //feedback
+    //     Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
+    // //reservations
+    //     Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
+    //     Route::get('/reservations/data', [ReservationController::class, 'getReservationsData']);
+    // //statistics
+    //     Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
+    // });
 });
 
 

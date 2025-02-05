@@ -3,6 +3,10 @@
 
 @section('content')
 
+<style>
+    body {background-color: #ddd;}
+</style>
+
 <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -49,5 +53,7 @@
        </div>
        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d828.4396846100502!2d35.49964726961267!3d33.84433199832727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDUwJzM5LjYiTiAzNcKwMzAnMDEuMSJF!5e0!3m2!1sen!2slb!4v1738691028091!5m2!1sen!2slb" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
     </div>
+
+
    </section>
 @endsection

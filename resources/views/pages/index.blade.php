@@ -4,6 +4,10 @@
 @section('content')
 
 <section class="hero-wrap">
+
+    <style>
+        body {background-color: #ddd;}
+    </style>
     <div class="home-slider owl-carousel js-fullheight">
         <div class="slider-item js-fullheight" style="background-image:url(images/feanebck.jpg);">
             <div class="overlay"></div>
@@ -50,11 +54,12 @@
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>
+
+              <h2 style="color: red">
                 We Are Grilled taste Restaurant
               </h2>
             </div>
-            <p>
+            <p style="color: rgb(7, 5, 5);">
                 There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own home. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
             </p>
             <a href="/about">

@@ -1,6 +1,9 @@
 @extends('layout.app')
 
 @section('content')
+
+
+
     {{-- product word --}}
     <section class="hero-wrap for-products" style="background-image: url('images/bg_5.jpg');"
         data-stellar-background-ratio="0.5">
