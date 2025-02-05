@@ -22,9 +22,12 @@
                     <span class="subheading">Specialties</span>
                     <h2 class="mb-4">Our Menu</h2>
                 </div>
+
+
             </div>
             <div class="row">
                 @foreach ($menus as $menu)
+                <div style="width: 80%; height: 2px; background-color: red; margin: 20px auto;"></div>
                     <div class="col-md-12 mb-5">
                         <div class="heading-menu text-center ftco-animate">
                             <h3>{{ $menu->name }}</h3>
@@ -38,10 +41,10 @@
                                             <h3>{{ $product->name }}</h3>
                                             <p>{{ $product->description }}</p>
                                             <p class="price">{{ $product->price }} {{ $product->currency }}</p>
-                                            <form action="{{ route('menu.add', ['productId' => $product->id]) }}" method="POST">
+                                            {{-- <form action="{{ route('menu.add', ['productId' => $product->id]) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn btn-primary">Add to Order</button>
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -77,10 +80,10 @@
                                     <h3>{{ $orderedProduct['name'] }}</h3>
                                     <p>{{ $orderedProduct['description'] }}</p>
                                     <p class="price">{{ number_format($orderedProduct['price'], 2) }} {{ $orderedProduct['currency'] }}</p>
-                                    <form action="{{ route('menu.remove', ['productId' => $productId]) }}" method="POST">
+                                    {{-- <form action="{{ route('menu.remove', ['productId' => $productId]) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">Clear</button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -178,7 +181,7 @@
 
         .text .price {
             font-size: 1.2rem;
-            color: #007bff;
+            color: #ff0000;
             font-weight: bold;
         }
 

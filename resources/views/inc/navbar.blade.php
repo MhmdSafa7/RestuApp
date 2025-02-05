@@ -1,5 +1,5 @@
-<div class="wrap">
-    <div class="container">
+<div class="wrap ">
+    <div class="wrap container-fluid">
         <div class="row justify-content-between">
             <div class="col-12 col-md d-flex align-items-center">
                 <p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+961 78983139</a> or
@@ -33,17 +33,7 @@
             <span class="oi oi-menu"></span>
 
         </button>
-        @auth
-            @if (Auth::check())
-                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->role }}</h4>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
-                    @csrf
 
-                    <button class="btn" type="submit" style=" position:relative;  color:red;">Logout</button>
-
-                </form>
-            @endif
-        @endauth
 
         @if (!Auth::check())
                 <div class="collapse navbar-collapse" id="ftco-nav">
@@ -66,81 +56,80 @@
                         </li>
         @endif
 
+
+
+
+
                 <!-- Authentication Links -->
-                {{-- @guest
+                @auth
+                <h4 style="color:white;" class="mb-4">Welcome, {{ Auth::user()->role }}</h4>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
+                    @csrf
+                    <button class="btn" type="submit" style="color:red;">Logout</button>
+                </form>
+
+
+                @if (Auth::check())
+                
+                    <li class="nav-item @if (Request::is('product')) active @endif">
+                        <a href="/product" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('offers')) active @endif">
+                        <a href="/offers" class="nav-link">Offers</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('events')) active @endif">
+                        <a href="/events" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('feedbackview')) active @endif">
+                        <a href="/feedbackview" class="nav-link">Feedbacks</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('reservationview')) active @endif">
+                        <a href="/reservationview" class="nav-link">Reservations</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('statistics')) active @endif">
+                        <a href="/statistics" class="nav-link">Statistics</a>
+                    </li>
+                @endif
+
+                @if (Auth::user()->isEditor())
+                    <li class="nav-item @if (Request::is('product')) active @endif">
+                        <a href="/product" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('offers')) active @endif">
+                        <a href="/offers" class="nav-link">Offers</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('events')) active @endif">
+                        <a href="/events" class="nav-link">Events</a>
+                    </li>
+                @endif
+
+                @if (Auth::user()->isModerator())
+                    <li class="nav-item @if (Request::is('feedbackview')) active @endif">
+                        <a href="/feedbackview" class="nav-link">Feedbacks</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('reservationview')) active @endif">
+                        <a href="/reservationview" class="nav-link">Reservations</a>
+                    </li>
+                    <li class="nav-item @if (Request::is('statistics')) active @endif">
+                        <a href="/statistics" class="nav-link">Statistics</a>
+                    </li>
+                @endif
+            @endauth
+
+            @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li> --}}
-                    {{-- @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else --}}
-                    <!-- Links for authenticated users based on roles -->
-                    @if (Auth::check())
-
-                        <li class="nav-item @if (Request::is('product')) active @endif">
-                            <a href="/product" class="nav-link">Products</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('feedbackview')) active @endif">
-                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('reservationview')) active @endif">
-                            <a href="/reservationview" class="nav-link">Reservations</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('offers')) active @endif">
-                            <a href="/offers" class="nav-link">Offers</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('events')) active @endif">
-                            <a href="/events" class="nav-link">Events</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('statistics')) active @endif">
-                            <a href="/statistics" class="nav-link">Statistics</a>
-                        </li>
-                    @endif
-                    {{-- @if (Auth::user()->isEditor())
-                        <li class="nav-item @if (Request::is('product')) active @endif">
-                            <a href="/product" class="nav-link">Products</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('offers')) active @endif">
-                            <a href="/offers" class="nav-link">Offers</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('events')) active @endif">
-                            <a href="/events" class="nav-link">Events</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->isModerator())
-                        <li class="nav-item @if (Request::is('feedbackview')) active @endif">
-                            <a href="/feedbackview" class="nav-link">Feedbacks</a>
-                        </li>
-                        <li class="nav-item @if (Request::is('reservationview')) active @endif">
-                            <a href="/reservationview" class="nav-link">Reservations</a>
-                        </li>
-                    @endif --}}
-
-                    <!-- Logout Link -->
-                    {{-- <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div> --}}
                     </li>
-                {{-- @endguest --}}
+                @endguest
+
+                    </li>
+
             </ul>
         </div>
     </div>
 </nav>
 <!-- END nav -->
+
+
+
+
