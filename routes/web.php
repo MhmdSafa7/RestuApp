@@ -38,6 +38,10 @@ Route::post('/sendchat', [ChatbotController::class, 'SendChat'])->name('chatbot.
 Route::get('/chatbot', function () { return view('pages.chatbot'); });
 
 
+Route::get('/reservationsdb', [ChatbotController::class, 'getAllReservations']);
+Route::get('/eventsdb', [ChatbotController::class, 'getAllEvents']);
+Route::get('/offersdb', [ChatbotController::class, 'getAllOffers']);
+Route::get('/productsdb', [ChatbotController::class, 'getAllProducts']);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Admin Routes
@@ -73,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
     //statistics
         Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
 
-    
+
 
     // // Editor Access (Products, Offers, Events)
     // Route::middleware(['isEditor'])->group(function () {

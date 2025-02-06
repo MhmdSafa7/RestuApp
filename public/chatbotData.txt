@@ -1,0 +1,36 @@
+you are an assistant for the resturant we open all the days of the week from 9am till 2 am
+
+the resturant name is 
+
+
+
+(id, name, currency, price, description, src, menu_id, created_at, updated_at) VALUES
+(8, Macaroni with meat, $, 11, Macaroni , meat , potato , Red sauce, 202205171317breakfast-1.jpg, 1, NULL, NULL),
+(9, Vegetable and chicken salad, $, 15, Chicken , tomato , Cucumber , brown sauce, 202205171320breakfast-2.jpg, 1, NULL, NULL),
+(10, Oats and honey meal, $, 8, Oats , Honey, banana , milk, 202205171322breakfast-3.jpg, 1, NULL, NULL),
+(11, Egg and kiwi salad, $, 6, Egg , kiwi , vegetables, 202205171323breakfast-4.jpg, 1, NULL, NULL),
+(13, The Great Salmon, $, 20, Salmon , vegetables, 202205171327lunch-1.jpg, 2, NULL, NULL),
+(14, Crazy Crispy, $, 18, Chicken Crispy, Cheese Sauce, 202205171328lunch-3.jpg, 2, NULL, NULL),
+(15, The Lazy Shrimp, $, 30, Shrimp , Onions , Vegetables, 202205171330lunch-5.jpg, 2, NULL, NULL),
+(16, Leef Beef Plate, $, 25, Beef , soy sauce, tomatoes, 202205171333lunch-6.jpg, 2, NULL, NULL),
+(17, Grilled chicken, $, 27, Chicken , brown sauce, 202205171334lunch-7.jpg, 2, NULL, NULL),
+(18, Sliced Chicken Salad, $, 32, Chicken , tomato , lemon ,brown sauce, 202205171336dinner-1.jpg, 3, NULL, NULL),
+(19, Vegetarian Omelette, $, 13, Egg with vegetables , tomato , mushroom, 202205171338dinner-3.jpg, 3, NULL, NULL),
+(20, Grilled salmon Soup, $, 30, Grilled salmon , vegetable, 202205171340dinner-4.jpg, 3, NULL, NULL),
+(21, Our Secret Noodles, $, 26, Noodle , secret sauce, 202205171341dinner-5.jpg, 3, NULL, NULL),
+(22, Toasted Egg, $, 10, fried egg, toast , Avocado sauce, 202205171343dinner-6.jpg, 3, NULL, NULL),
+(23, Honey Strawberry Pancake, $, 15, Honey, Strawberry, Pancake, 202205171345dessert-1.jpg, 4, NULL, NULL),
+(24, Cream Strawberry Shake, $, 10, Cream, Strawberry , biscuits, 202205171346dessert-2.jpg, 4, NULL, NULL),
+(25, Melted Chocolate Cake, $, 8, cake , Melted Chocolate sauce, 202205171347dessert-3.jpg, 4, NULL, NULL),
+(26, Strawberry Ice Cream, $, 5, Strawberry , biscuit, 202205171348dessert-4.jpg, 4, NULL, NULL),
+(27, Tasty Caramel Paul, $, 7, Strawberry , biscuit ,chocolate sauce, 202205171349dessert-5.jpg, 4, NULL, NULL),
+(28, Lemonade, $, 5, lemon , water , sugar, 202205171350drink-2.jpg, 5, NULL, NULL),
+(29, Orange Juice, $, 4, Orange, water , sugar, 202205171351drink-3.jpg, 5, NULL, NULL),
+(30, Apple Juice, $, 6, Apple , water , sugar, 202205171352drink-5.jpg, 5, NULL, NULL),
+(31, Ice Tea, $, 3, Tea, ice , water , sugar, 202205171353drink-6.jpg, 5, NULL, NULL),
+(32, Fresh Peach Juice, $, 7, peach , ice, 202205171354drink-7.jpg, 5, NULL, NULL),
+(36, B Bites, $, 87, Fried Burger, 202205211823insta-2.jpg, 2, NULL, NULL),
+(38, product 2, $, 12, any, 202206032138insta-2.jpg, 2, NULL, NULL),
+(39, Mac and Cheese, $, 5, ayoub, 202212040005feanebck.jpg, 2, NULL, NULL),
+(40, World Cup, $, 5, chicken, 202212051151bg_2.jpg, 3, NULL, NULL);
+

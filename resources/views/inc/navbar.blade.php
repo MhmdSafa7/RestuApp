@@ -34,12 +34,30 @@
             <span class="oi oi-menu"></span>
 
         </button>
+<!-- Toggler Button for Mobile -->
+<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="three-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</button>
 
-        <!-- Toggler Button for Mobile -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span>
-        </button>
+<style>
 
+    .three-dots {
+        display: flex;
+        flex-direction: column;
+        gap: 3px; /* Space between dots */
+    }
+
+    .dot {
+        width: 6px; /* Size of each dot */
+        height: 6px; /* Size of each dot */
+        background-color: rgb(147, 7, 7); /* Color of the dots */
+        border-radius: 50%; /* Makes the dots circular */
+    }
+</style>
 
         @if (!Auth::check())
                 <div class="collapse navbar-collapse" id="ftco-nav">
@@ -80,6 +98,8 @@
 
 
                 @if (Auth::check())
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item @if (Request::is('product')) active @endif">
                         <a href="/product" class="nav-link">Products</a>
@@ -102,6 +122,9 @@
                 @endif
 {{--
                 @if (Auth::user()->isEditor())
+                 <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item @if (Request::is('product')) active @endif">
                         <a href="/product" class="nav-link">Products</a>
                     </li>
@@ -114,6 +137,8 @@
                 @endif
 
                 @if (Auth::user()->isModerator())
+                 <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
                     <li class="nav-item @if (Request::is('feedbackview')) active @endif">
                         <a href="/feedbackview" class="nav-link">Feedbacks</a>
                     </li>
