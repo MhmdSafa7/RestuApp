@@ -8,7 +8,7 @@
                 </p>
             </div>
             <div class="col-12 col-md d-flex justify-content-md-end">
-                <p class="mb-0">Mon - Fri / 9:00-21:00, Sat - Sun / 10:00-20:00</p>
+                <p class="mb-0">Mon - thu / 9am-12am, fri - Sun / 9am-2am</p>
                 <div class="social-media">
                     <p class="mb-0 d-flex">
                         <a href="#" class="d-flex align-items-center justify-content-center"><span
@@ -97,7 +97,7 @@
                 </form>
 
 
-                @if (Auth::check())
+                @if ((auth()->user()->role == 'ADMIN'))
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
 
@@ -120,8 +120,8 @@
                         <a href="/statistics" class="nav-link">Statistics</a>
                     </li>
                 @endif
-{{--
-                @if (Auth::user()->isEditor())
+
+                @if ((auth()->user()->role == 'EDITOR'))
                  <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
 
@@ -136,7 +136,7 @@
                     </li>
                 @endif
 
-                @if (Auth::user()->isModerator())
+                @if ((auth()->user()->role == 'MODERATOR'))
                  <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item @if (Request::is('feedbackview')) active @endif">
@@ -148,7 +148,7 @@
                     <li class="nav-item @if (Request::is('statistics')) active @endif">
                         <a href="/statistics" class="nav-link">Statistics</a>
                     </li>
-                @endif --}}
+                @endif
             @endauth
 
             @guest

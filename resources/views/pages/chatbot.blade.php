@@ -6,17 +6,17 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate text-center mb-5">
-                    <h1 class="mb-2 bread">Chatbot</h1>
+                    <h1 class="mb-2 bread">Assistant</h1>
                     <p class="breadcrumbs">
                         <span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span>
-                        <span>Chatbot <i class="fa fa-chevron-right"></i></span>
+                        <span>Assistant <i class="fa fa-chevron-right"></i></span>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section">
+    <section class="ftco-section " style="background-image: url('images/about.jpg');">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-2">
                 <div class="col-md-7 text-center heading-section ftco-animate">

@@ -74,7 +74,7 @@
 {{-- end about --}}
 
 {{-- events --}}
-<section class="ftco-section " style="background-image: url('images/image_1.jpg');">
+<section class="ftco-section " style="background-image: url('images/event.jpg');">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-7 text-center heading-section ftco-animate bg-light" >
@@ -108,7 +108,7 @@
 {{-- end events --}}
 
 {{-- offers --}}
-<section class="ftco-section" style="background-image: url(images/bg_1.jpg);">
+<section class="ftco-section" style="background-image: url(images/bg_4.jpg);">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-7 text-center heading-section ftco-animate bg-light">

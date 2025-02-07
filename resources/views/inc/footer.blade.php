@@ -40,7 +40,7 @@
                     <div class="thumb d-flex">
                         <a href="#" class="thumb-menu img" style="background-image: url(images/insta-4.jpg);">
                         </a>
-                        <a href="#" class="thumb-menu img" style="background-image: url(images/insta-5.jpg);">
+                        <a href="#" class="thumb-menu img" style="background-image: url(images/bg_4.jpg);">
                         </a>
                         <a href="#" class="thumb-menu img" style="background-image: url(images/insta-6.jpg);">
                         </a>
@@ -52,7 +52,7 @@
                     <h2 class="ftco-heading-2">By:</h2>
                     <ul class="list-unstyled open-hours">
                         <li class="d-flex"><span>Mohammad Safa</span><span>10121365</li>
-                        
+
                     </ul>
                 </div>
             </div>
