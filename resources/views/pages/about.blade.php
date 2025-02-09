@@ -30,7 +30,7 @@
         <div class="heading-section ftco-animate mb-5">
          <span class="subheading">This is our secrets</span>
          <h2 class="mb-4">Perfect Ingredients</h2>
-         <p>There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own home. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
+         <p>There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own Uni. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
          </p>
          <p><a href="/reservation" class="btn btn-primary">RESERVATION</a></p>
        </div>

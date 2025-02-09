@@ -10,10 +10,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\ChatbotController;
-use App\Http\Middleware\IsAdmin;
-use App\Http\Middleware\IsEditor;
-use App\Http\Middleware\IsModerator;
-use App\Http\Controllers\orderController;
+use App\Http\Controllers\OrderController;
+
 
 
 // Home Index
@@ -24,6 +22,12 @@ Route::resource('/about', AboutController::class);
 
 // Menu
 Route::resource('/menu', MenuController::class);
+//order
+Route::post('/newers', [OrderController::class, 'storeOrder'])->name('order.store'); // Create an order
+Route::get('/orders/{order}', [OrderController::class, 'show']); // View a specific order
+Route::get('/orders', [OrderController::class, 'index']); // View all orders
+
+
 
 // Reservation
 Route::resource('/reservation', ReservationController::class);

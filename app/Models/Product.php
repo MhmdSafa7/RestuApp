@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    
+
 
     public $timestamps=false;
 
@@ -18,4 +18,8 @@ class Product extends Model
     public $primaryKey='id';
 
     use HasFactory;
+
+    public function orders() {
+        return $this->belongsToMany(Order::class, 'order_product')->withPivot('quantity');
+    }
 }

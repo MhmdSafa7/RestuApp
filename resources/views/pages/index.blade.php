@@ -60,7 +60,7 @@
               </h2>
             </div>
             <p style="color: rgb(7, 5, 5);">
-                There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own home. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
+                There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own Uni. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
             </p>
             <a href="/about">
               Read More

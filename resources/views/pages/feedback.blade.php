@@ -20,36 +20,7 @@
             </div>
         </div>
     </section>
-    <section class="ftco-section contact-section bg-light">
-        <div class="container">
-            <div class="row d-flex contact-info">
-                <div class="col-md-12">
-                    <h2 class="h4 font-weight-bold">Contact Information</h2>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-3 d-flex">
-                    <div class="dbox">
-                        <p><span>Address:</span>  Airport Road, AlMaaref University, Block C, Cafeteria</p>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="dbox">
-                        <p><span>Phone:</span> <a href="tel://1234567920">+961 78983139</a></p>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="dbox">
-                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">grilledtaste@email.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="dbox">
-                        <p><span>Website</span> <a href="#">Grilledtaste.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section class="ftco-section ftco-no-pt contact-section">
         <div class="container">
             <div class="row d-flex align-items-stretch no-gutters">
@@ -94,6 +65,38 @@
                 </div>
             </div>
     </section>
+{{--
+    <section class="ftco-section contact-section bg-light">
+        <div class="container">
+            <div class="row d-flex contact-info">
+                <div class="col-md-12">
+                    <h2 class="h4 font-weight-bold">Contact Information</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-md-3 d-flex">
+                    <div class="dbox">
+                        <p><span>Address:</span>  Airport Road, AlMaaref University, Block C, Cafeteria</p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="dbox">
+                        <p><span>Phone:</span> <a href="tel://1234567920">+961 78983139</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="dbox">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">grilledtaste@email.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="dbox">
+                        <p><span>Website</span> <a href="#">Grilledtaste.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
 
     <section class="ftco-section testimony-section" style="background-image: url(images/bg_5.jpg);">
         <div class="overlay"></div>
