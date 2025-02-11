@@ -39,7 +39,7 @@
    </div>
    </div>
    </section>
-   <section class="ftco-section contact-section bg-light">
+   <section class="ftco-section contact-section bg-light" style="background-color:#ddd ">
     <div class="container">
       <div class="row d-flex contact-info">
         <div class="col-md-12">

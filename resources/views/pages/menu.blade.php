@@ -20,7 +20,7 @@
         </div>
     </div>
 </section>
-
+<!-- Display product -->
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h4>Selected Products:</h4>
-                <div id="order-list" class="row"></div>
+                <div id="order-list" class="row"> </div>
                 <h3 id="total-price" class="mt-4">Total Price: 0</h3>
             </div>
         </div>
@@ -84,37 +84,38 @@
 </section>
 
 
+<section class="order-section">
     <div class="container">
-        <div class="row no-gutters">
-            <div class="col-sm-12 p-4 p-md-5 d-flex align-items-center justify-content-center bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-8 p-4 p-md-5 d-flex align-items-center justify-content-center bg-gray">
                 <form method="post" action="{{ route('order.store') }}" class="appointment-form">
                     @csrf
-                    <h3 class="mb-3">Your Information</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-md-4">
+                    <h3 class="text-center text-white mb-4">Your Information</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="phonenumber" class="form-control" placeholder="Phone" required>
+                                <input type="text" name="phonenumber" class="form-control form-control-lg" placeholder="Phone" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="location" class="form-control" placeholder="Location" required>
+                                <input type="text" name="location" class="form-control form-control-lg" placeholder="Location" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="time" class="form-control book_time" placeholder="When you want your order" required>
+                                <input type="text" name="time" class="form-control form-control-lg book_time" placeholder="When you want your order" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-white py-3 px-4">Confirm Your Order Now</button>
-                            </div>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-light btn-lg py-3 px-5 rounded-pill font-weight-bold">
+                                Confirm Your Order Now
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -123,9 +124,152 @@
     </div>
 </section>
 
+{{-- order information --}}
+<style>
+    .hero-wrap {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-wrap .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-wrap .slider-text {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-wrap h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .breadcrumbs {
+        color: #fff;
+    }
+
+    .breadcrumbs a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+        color: #ffc107;
+    }
+
+    .appointment-form {
+        background: #790505;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 60px rgba(80, 0, 0, 0.5);
+    }
+
+    .appointment-form h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0f1011;
+        margin-bottom: 20px;
+        text-align: center;
+
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 10px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        color: #0f1011;
+        text-decoration-color:  #000;
+
+    }
+
+    .form-control:focus {
+        border-color: black;
+        box-shadow: none;
+        color: #000;
+    }
+
+    .input-wrap {
+        position: relative;
+    }
+
+    .input-wrap .icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: black;
+    }
+
+    .input-wrap input {
+        padding-left: 40px;
+    }
+
+    .select-wrap {
+        position: relative;
+    }
+
+    .select-wrap .icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        color: black;
+        pointer-events: none;
+    }
+
+    .select-wrap select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 40px;
+    }
+
+    .btn-white {
+        background-color: #fff;
+        color: black;
+        border: 2px solid black;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-white:hover {
+        background-color: black;
+        color: #fff;
+    }
+</style>
+
+<style>
+    .hover-container {
+        transition: all 0.3s ease-in-out;
+        border: 2px solid transparent;
+        padding: 1.5rem; /* Adjust padding as needed */
+    }
+
+    .hover-container:hover {
+        border: 2px solid #ffffff; /* White border on hover */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        transform: translateY(-5px); /* Slight lift effect */
+    }
+</style>
+
    <!-- Fixed "Your Order" Button -->
    <div class="fixed-order-button" onclick="scrollToOrder()">
-    Your Order
+    <span class="subheading">your order</span>
 </div>
 
 
@@ -198,24 +342,47 @@
 
 .fixed-order-button {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 20%;
-    background-color: rgba(255, 0, 0, 0.8); /* Transparent red */
-    color: #fff;
+    bottom: 15px;
+    left: 10px;
+    width: 18%;
+    background-color: rgba(248, 248, 248, 0.397); /* More transparent red */
+    color: #e01616;
     text-align: center;
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    font-style: italic
     cursor: pointer;
     z-index: 1000; /* Ensure it's above other elements */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-
+    box-shadow: 0 -2px 10px rgba(187, 8, 8, 0); /* Red glow shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 5px; /* Remove default border */
+    outline: none; /* Remove outline */
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+    border-radius: 5px 5px 0 0; /* Rounded corners at the top */
 }
 
 .fixed-order-button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: rgba(0, 0, 0, 0.288); /* Darker and more transparent on hover */
+    box-shadow: 0 -2px 40px rgba(255, 0, 0, 0.8); /* Stronger red glow on hover */
 }
+
+/* Optional: Add a subtle animation for the glow */
+@keyframes glow {
+    0% {
+        box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 -2px 20px rgba(255, 0, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.5);
+    }
+}
+
+.fixed-order-button {
+    animation: glow 3s infinite; /* Apply the glow animation */
+}
+
     .menu-wrap {
         background: #fff;
         border-radius: 10px;
@@ -223,11 +390,15 @@
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin-bottom: 20px;
+        border: none; /* Ensure no border is applied */
+        outline: none; /* Remove any outline */
     }
 
     .menu-wrap:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 20px rgba(190, 7, 7, 0.555);
+        border: none; /* Ensure no border on hover */
+        outline: none; /* Remove any outline on hover */
     }
 
     .menu-img {
@@ -257,9 +428,22 @@
         font-weight: bold;
     }
 
+    .btn-primary {
+        background-color: #ff0000;
+        color: #fff;
+        border-radius: 10px;
+        padding: 5px 10px;
+        border: 10px;
+        outline: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-end-end-radius 0.3s ease;
+    }
+
     .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #080b0e;
+        border-end-end-radius: 10px;
     }
 </style>
+
 
 @endsection
