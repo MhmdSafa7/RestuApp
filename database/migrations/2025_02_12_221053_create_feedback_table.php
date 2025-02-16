@@ -12,11 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feedback', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); // Nullable for guests
             $table->string('name');
-            $table->string('Email');
-            $table->String('rate');
+            $table->string('email');
+            $table->string('rate');
             $table->mediumText('body');
+            $table->timestamps(); // Adds created_at & updated_at
+
+            // Foreign key constraint (onDelete cascade still works if user_id is not null)
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

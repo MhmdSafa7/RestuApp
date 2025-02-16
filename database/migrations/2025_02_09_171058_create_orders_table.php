@@ -8,7 +8,7 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Customer name
-            $table->string('email'); // Customer email
+            $table->string('email')->nullable(); // Customer email
             $table->string('phone'); // Customer phone number
             $table->text('location'); // Location description
             $table->decimal('total_price', 10, 2); // Total order price

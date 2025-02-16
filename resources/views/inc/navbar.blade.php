@@ -1,4 +1,6 @@
 
+
+{{-- first line --}}
 <div class="wrap ">
     <div class="wrap container-fluid">
         <div class="row justify-content-between">
@@ -97,6 +99,32 @@
                 </form>
 
 
+            @if ((auth()->user()->role == 'USER'))
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Links for all users -->
+
+                        <li class="nav-item @if (Request::is('/')) active @endif">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('about')) active @endif">
+                            <a href="/about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('menu')) active @endif">
+                            <a href="/menu" class="nav-link">Menu</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('chatbot')) active @endif">
+                            <a href="/chatbot" class="nav-link">Assistant</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('reservation')) active @endif">
+                            <a href="/reservation" class="nav-link">Reservation</a>
+                        </li>
+                        <li class="nav-item @if (Request::is('feedback')) active @endif">
+                            <a href="/feedback" class="nav-link">Feedback</a>
+                        </li>
+        @endif
+
+
                 @if ((auth()->user()->role == 'ADMIN'))
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
@@ -118,6 +146,9 @@
                     </li>
                     <li class="nav-item @if (Request::is('statistics')) active @endif">
                         <a href="/statistics" class="nav-link">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('register') }}</a>
                     </li>
                 @endif
 
@@ -152,6 +183,9 @@
             @endauth
 
             @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('UserRegister') }}">{{ __('register') }}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>

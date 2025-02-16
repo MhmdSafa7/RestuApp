@@ -8,6 +8,7 @@
     <style>
         body {background-color: #ddd;}
     </style>
+    {{-- image --}}
     <div class="home-slider owl-carousel js-fullheight">
         <div class="slider-item js-fullheight" style="background-image:url(images/feanebck.jpg);">
             <div class="overlay"></div>
@@ -60,7 +61,7 @@
               </h2>
             </div>
             <p style="color: rgb(7, 5, 5);">
-                There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to your own Uni. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
+                There is some good news for you. We are proud to inform you that Grilled Taste is opening right next to Rawshe Landmark. We serve a variety of our own special mouthwatering burgers, exotic pastas and yummy desserts at very reasonable prices. We are enclosing a menu for you to go through.
             </p>
             <a href="/about">
               Read More
@@ -70,9 +71,10 @@
       </div>
     </div>
   </section>
-
 {{-- end about --}}
 <div style="width: 80%; height: 2px; background-color: red; margin: 20px auto;"></div>
+
+
 {{-- events --}}
 <section class="ftco-section" style="background-image: url('images/event.jpg'); background-size: cover; background-position: center;">
     <div class="container">
@@ -88,7 +90,7 @@
                     <div class="col-md-4 ftco-animate mb-4">
                         <div class="blog-entry" style="background: #474646af; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                             <!-- Image with Padding -->
-                            <a href="/menu" class="block-20" style="display: block; height: 250px; background-image: url({{ url('public/images/' . $e->src) }}); background-size: cover; background-position: center; position: relative; margin: 15px; border-radius: 10px;">
+                            <a  class="block-20" style="display: block; height: 250px; background-image: url({{ url('public/images/' . $e->src) }}); background-size: cover; background-position: center; position: relative; margin: 15px; border-radius: 10px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); transition: background 0.3s ease; border-radius: 10px;"></div>
                             </a>
                             <!-- Card Content -->
@@ -149,7 +151,6 @@
             }
         </style>
 </section>
-
 {{-- end events --}}
 
 {{-- offers --}}
@@ -167,7 +168,7 @@
                     <div class="col-md-4 ftco-animate mb-4">
                         <div class="blog-entry" style="background: #474646af; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                             <!-- Image with Padding -->
-                            <a href="/menu" class="block-20" style="display: block; height: 250px; background-image: url({{ url('public/images/' . $f->src) }}); background-size: cover; background-position: center; position: relative; margin: 15px; border-radius: 10px;">
+                            <a  class="block-20" style="display: block; height: 250px; background-image: url({{ url('public/images/' . $f->src) }}); background-size: cover; background-position: center; position: relative; margin: 15px; border-radius: 10px;">
                                 <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); transition: background 0.3s ease; border-radius: 10px;"></div>
                             </a>
                             <!-- Card Content -->
@@ -198,7 +199,6 @@
         </div>
     </div>
 </section>
-
 
     <style>
     /* Custom Styles for Offer Cards */

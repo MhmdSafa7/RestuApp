@@ -5,7 +5,7 @@
     body {background-color: #ddd;}
 </style>
 
-
+{{-- image --}}
 <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -20,6 +20,7 @@
         </div>
     </div>
 </section>
+
 <!-- Display product -->
 <section class="ftco-section">
     <div class="container">
@@ -65,7 +66,6 @@
 </section>
 
 <!-- Display Order -->
-<!-- Order Section (Target Section) -->
 <section class="ftco-section" id="order-display">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -76,42 +76,83 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h4>Selected Products:</h4>
-                <div id="order-list" class="row"> </div>
-                <h3 id="total-price" class="mt-4">Total Price: 0</h3>
+                <div id="order-list" class="row">
+                    @if(session()->has('cart') && is_array(session('cart')) && count(session('cart')) > 0)
+                        @foreach(session('cart') as $product)
+                            <div class="col-md-4 mb-3 product-item" data-id="{{ $product['id'] }}" data-price="{{ $product['price'] }}">
+                                <div class="card p-3">
+                                    <h5>{{ $product['name'] }}</h5>
+                                    <p>Price: ${{ $product['price'] }}</p>
+                                    <input type="number" name="products[{{ $product['id'] }}][quantity]" class="form-control quantity-input" value="{{ $product['quantity'] }}" min="1">
+                                    <input type="hidden" name="products[{{ $product['id'] }}][id]" value="{{ $product['id'] }}">
+                                    <button type="button" class="btn btn-danger mt-2 remove-product">Remove</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>No products selected yet.</p>
+                    @endif
+                </div>
+                <h3 id="total-price" class="mt-4">Total Price: $0</h3>
             </div>
         </div>
     </div>
 </section>
 
-
+{{-- User Information for Orders --}}
 <section class="order-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 p-4 p-md-5 d-flex align-items-center justify-content-center bg-gray">
-                <form method="post" action="{{ route('order.store') }}" class="appointment-form">
+                <form method="post" action="{{ route('order.store') }}" class="appointment-form" id="order-form">
                     @csrf
                     <h3 class="text-center text-white mb-4">Your Information</h3>
+
                     <div class="row">
+                        {{-- Name Field --}}
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name" required>
+                                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name" required value="{{ old('name') }}">
+                                @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                         </div>
+
+                        {{-- Email Field --}}
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="phonenumber" class="form-control form-control-lg" placeholder="Phone" required>
+                                <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required value="{{ old('email') }}">
+                                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                         </div>
+
+                        {{-- Phone Field --}}
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="location" class="form-control form-control-lg" placeholder="Location" required>
+                                <input type="text" name="phone" class="form-control form-control-lg" placeholder="Phone" required value="{{ old('phone') }}">
+                                @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                         </div>
+
+                        {{-- Location Field --}}
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" name="time" class="form-control form-control-lg book_time" placeholder="When you want your order" required>
+                                <input type="text" name="location" class="form-control form-control-lg" placeholder="Location" required value="{{ old('location') }}">
+                                @error('location') <small class="text-danger">{{ $message }}</small> @enderror
                             </div>
                         </div>
+
+                        {{-- Order Arrival Time --}}
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <input type="datetime-local" name="order_arrival_time" class="form-control form-control-lg" required value="{{ old('order_arrival_time') }}">
+                                @error('order_arrival_time') <small class="text-danger">{{ $message }}</small> @enderror
+                            </div>
+                        </div>
+
+                        {{-- Hidden Input for Products --}}
+                        <input type="hidden" name="products" id="products-input">
+
+                        {{-- Submit Button --}}
                         <div class="col-12 text-center mt-4">
                             <button type="submit" class="btn btn-light btn-lg py-3 px-5 rounded-pill font-weight-bold">
                                 Confirm Your Order Now
@@ -124,7 +165,9 @@
     </div>
 </section>
 
-{{-- order information --}}
+
+
+
 <style>
     .hero-wrap {
         position: relative;
@@ -282,9 +325,12 @@
             document.getElementById('order-display').scrollIntoView({ behavior: 'smooth' });
         }
 
-    let orderProducts = [];
+        let orderProducts = [];
 
-    $(document).ready(function () {
+        $(document).ready(function () {
+        let orderProducts = [];
+
+        // Add product to order
         $(".add-to-order").click(function () {
             let productId = $(this).data("id");
             let productName = $(this).data("name");
@@ -306,6 +352,7 @@
             updateOrderList();
         });
 
+        // Update the order list and total price
         function updateOrderList() {
             let orderList = $("#order-list");
             orderList.empty();
@@ -315,18 +362,14 @@
                 let productTotal = product.quantity * product.price;
                 totalPrice += productTotal;
 
-                // Create a card for each product
                 let card = `
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${product.name}</h5>
-                                <p class="card-text">
-                                    Quantity: ${product.quantity}<br>
-                                    Price: ${product.price} ${product.currency}<br>
-                                    Total: ${productTotal.toFixed(2)} ${product.currency}
-                                </p>
-                            </div>
+                    <div class="col-md-4 mb-3 product-item" data-id="${product.id}" data-price="${product.price}">
+                        <div class="card p-3">
+                            <h5>${product.name}</h5>
+                            <p>Price: ${product.price} ${product.currency}</p>
+                            <input type="number" class="form-control quantity-input" value="${product.quantity}" min="1" data-id="${product.id}">
+                            <input type="hidden" name="products[${product.id}][id]" value="${product.id}">
+                            <button type="button" class="btn btn-danger mt-2 remove-product" data-id="${product.id}">Remove</button>
                         </div>
                     </div>
                 `;
@@ -334,8 +377,41 @@
             });
 
             $("#total-price").text(`Total Price: ${totalPrice.toFixed(2)} ${orderProducts[0]?.currency || ''}`);
+            attachEventListeners();
         }
+
+        // Attach event listeners for quantity changes and remove buttons
+        function attachEventListeners() {
+            $(".quantity-input").on("input", function () {
+                let productId = $(this).data("id");
+                let newQuantity = parseInt($(this).val());
+
+                if (newQuantity < 1) {
+                    $(this).val(1);
+                    newQuantity = 1;
+                }
+
+                let product = orderProducts.find(p => p.id === productId);
+                if (product) {
+                    product.quantity = newQuantity;
+                    updateOrderList();
+                }
+            });
+
+            $(".remove-product").click(function () {
+                let productId = $(this).data("id");
+                orderProducts = orderProducts.filter(p => p.id !== productId);
+                updateOrderList();
+            });
+        }
+
+        // Before form submission, populate the hidden input with product data
+        $("#order-form").on("submit", function (e) {
+            let productsData = JSON.stringify(orderProducts);
+            $("#products-input").val(productsData);
+        });
     });
+
 </script>
 
 <style>

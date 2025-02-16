@@ -134,7 +134,7 @@
     }
 </style>
 
-
+{{-- image --}}
 <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -149,7 +149,7 @@
         </div>
     </div>
 </section>
-
+{{-- reservation container--}}
 <section class="ftco-section " style="background-image: url('images/bg_4.jpg');">
         <div class="container">
         <div class="row no-gutters justify-content-center">

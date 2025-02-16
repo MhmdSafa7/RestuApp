@@ -51,12 +51,15 @@ Route::get('/productsdb', [ChatbotController::class, 'getAllProducts']);
 Auth::routes(['register' => false]);
 
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('newregister', [RegisterController::class, 'register'])->name('newregister');
+
+Route::get('UserRegister', [RegisterController::class, 'showUserRegistrationForm'])->name('UserRegister');
+Route::post('NewUserRegister', [RegisterController::class, 'registerUser'])->name('createUser');
+
 
 Route::middleware(['auth'])->group(function () {
 
     Route::post('register', [RegisterController::class, 'register']);
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
     // Admin Access (Feedback, Reservations, Product, Offers, Events, Statistics)
     //feedback

@@ -8,6 +8,7 @@
 
 </style>
 
+{{-- image --}}
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -23,6 +24,8 @@
         </div>
     </section>
 
+
+{{-- feedback container --}}
     <section class="ftco-section ftco-no-pt contact-section">
         <div class="container" style="padding-top: 5%;">
             <div class="row d-flex align-items-stretch no-gutters">

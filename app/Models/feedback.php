@@ -15,5 +15,10 @@ class feedback extends Model
     // Primary Key
     public $primaryKey='id';
 
+    public function user()
+        {
+            return $this->belongsTo(User::class, 'user_id')->nullable();
+        }
+
 use HasFactory;
 }

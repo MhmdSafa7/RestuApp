@@ -1,6 +1,7 @@
 @extends('layout.app') {{-- Extend the same layout as the menu view --}}
 
 @section('content')
+{{-- image --}}
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -15,7 +16,7 @@
             </div>
         </div>
     </section>
-
+{{-- assistant div --}}
     <section class="ftco-section " style="background-image: url('images/about.jpg');">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-2">

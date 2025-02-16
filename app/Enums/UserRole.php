@@ -15,12 +15,15 @@ final class UserRole extends Enum
     const MODERATOR =   'MODERATOR';
     const EDITOR = 'EDITOR';
 
+    const USER = 'USER';
+
     public static function getValues(array|string|null $keys = null): array
     {
         return [
             self::ADMIN,
             self::EDITOR,
             self::MODERATOR,
+            self::USER,
         ];
     }
 }

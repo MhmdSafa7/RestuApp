@@ -71,11 +71,11 @@ class User extends Authenticatable
  *
  * @return bool
  */
-public function isAdmin()
-{
-    $role = strtolower($this->role);
-    return $this->role === 'admin';
-}
+    public function isAdmin()
+    {
+        $role = strtolower($this->role);
+        return $this->role === 'admin';
+    }
 
         public function isEditor()
     {
@@ -86,5 +86,29 @@ public function isAdmin()
     {
         return $this->role === 'moderator';
     }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
+
+
+    public function feedbacks()
+    {
+        return $this->hasMany(feedback::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 
 }

@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('newregister') }}" class="register-form">
+                    <form method="POST" action="{{ route('createUser') }}" class="register-form">
                         @csrf
 
                         <!-- Name Input -->
@@ -136,17 +136,6 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <!-- Role Selection -->
-                        <div class="row mb-3">
-                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-                            <div class="col-md-6">
-                                <select name="role" class="form-control">
-                                    <option value="MODERATOR">Moderator</option>
-                                    <option value="EDITOR">Editor</option>
-                                </select>
                             </div>
                         </div>
 

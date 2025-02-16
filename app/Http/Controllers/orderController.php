@@ -8,16 +8,17 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller {
     public function storeOrder(Request $request) {
-    $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|email',
-        'phone' => 'required|string',
-        'location' => 'required|string',
-        'products' => 'required|array', // List of product IDs and quantities
-        'products.*.id' => 'exists:products,id',
-        'products.*.quantity' => 'integer|min:1',
-        'order_arrival_time' => 'required|date',
-    ]);
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'location' => 'required|string',
+            'products' => 'required|string', // Products are sent as a JSON string
+            'order_arrival_time' => 'required|date',
+        ]);
+
+    $products = json_decode($request->products, true);
+
 
     $order = Order::create([
         'name' => $request->name,
@@ -29,16 +30,29 @@ class OrderController extends Controller {
     ]);
 
     $totalPrice = 0;
+//dd($request->products);
+    // foreach ($request->$products as $productData) {
 
-    foreach ($request->products as $productData) {
-        $product = Product::find($productData['id']);
+    //     $product = Product::find($productData['id']);
+    //     $quantity = $productData['quantity'];
+    //     $order->products()->attach($product->id, ['quantity' => $quantity]);
+    //     $totalPrice += $product->price * $quantity;
+    // }
+ // Iterate over the products array
+ foreach ($products as $productData) {
+
+    $product = Product::find($productData['id']);
+    if ($product) {
         $quantity = $productData['quantity'];
         $order->products()->attach($product->id, ['quantity' => $quantity]);
         $totalPrice += $product->price * $quantity;
     }
+}
 
     $order->update(['total_price' => $totalPrice]);
-    return response()->json(['message' => 'Order placed successfully!', 'order' => $order]);
+  //  return response()->json(['message' => 'Order placed successfully!', 'order' => $order]);
+  return redirect('/menu');
+
     }
 }
 
