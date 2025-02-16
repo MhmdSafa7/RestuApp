@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller {
     public function storeOrder(Request $request) {
+        // Validate the request
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
@@ -17,42 +19,42 @@ class OrderController extends Controller {
             'order_arrival_time' => 'required|date',
         ]);
 
-    $products = json_decode($request->products, true);
+        // Decode the products JSON string into an array
+        $products = json_decode($request->products, true);
 
+        // Create the order
+        $orderData = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'location' => $request->location,
+            'total_price' => 0, // Will calculate later
+            'order_arrival_time' => $request->order_arrival_time,
+        ];
 
-    $order = Order::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'phone' => $request->phone,
-        'location' => $request->location,
-        'total_price' => 0, // Will calculate later
-        'order_arrival_time' => $request->order_arrival_time,
-    ]);
+        // Assign user_id only if the user is authenticated
+        if (Auth::check()) {
+            $orderData['user_id'] = Auth::id();
+        }
 
-    $totalPrice = 0;
-//dd($request->products);
-    // foreach ($request->$products as $productData) {
+        $order = Order::create($orderData);
 
-    //     $product = Product::find($productData['id']);
-    //     $quantity = $productData['quantity'];
-    //     $order->products()->attach($product->id, ['quantity' => $quantity]);
-    //     $totalPrice += $product->price * $quantity;
-    // }
- // Iterate over the products array
- foreach ($products as $productData) {
+        // Calculate total price and attach products to the order
+        $totalPrice = 0;
+        foreach ($products as $productData) {
+            $product = Product::find($productData['id']);
+            if ($product) {
+                $quantity = $productData['quantity'];
+                $order->products()->attach($product->id, ['quantity' => $quantity]);
+                $totalPrice += $product->price * $quantity;
+            }
+        }
 
-    $product = Product::find($productData['id']);
-    if ($product) {
-        $quantity = $productData['quantity'];
-        $order->products()->attach($product->id, ['quantity' => $quantity]);
-        $totalPrice += $product->price * $quantity;
+        // Update the total price of the order
+        $order->update(['total_price' => $totalPrice]);
+
+        return redirect('/menu')->with('success', 'Order placed successfully!');
     }
 }
 
-    $order->update(['total_price' => $totalPrice]);
-  //  return response()->json(['message' => 'Order placed successfully!', 'order' => $order]);
-  return redirect('/menu');
-
-    }
-}
 

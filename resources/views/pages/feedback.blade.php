@@ -35,11 +35,14 @@
                     <form method="post" action="/newfeedback">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                   value="{{ Auth::check() ? Auth::user()->name : '' }}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Your Email">
+                            <input type="text" name="email" class="form-control" placeholder="Your Email"
+                                   value="{{ Auth::check() ? Auth::user()->email : '' }}">
                         </div>
+
                         <div class="form-group">
                             Rating:
                             <div class="rating">

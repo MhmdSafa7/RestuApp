@@ -160,14 +160,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Name" required
+                                       value="{{ Auth::check() ? Auth::user()->name : '' }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required
+                                       value="{{ Auth::check() ? Auth::user()->email : '' }}">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" name="phonenumber" class="form-control" placeholder="Phone" required>

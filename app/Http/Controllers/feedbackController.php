@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\feedback;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class feedbackController extends Controller
 {
@@ -48,6 +49,9 @@ class feedbackController extends Controller
         $post->Email =  $request->input('email');
         $post->rate = $request->input('star');
         $post->body = $request->input('message');
+        if (Auth::check()) {
+            $post->user_id = Auth::id();
+        }
         $post->save();
         return redirect('/feedback');
     }

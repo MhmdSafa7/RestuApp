@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\reservation;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class reservationcontroller extends Controller
 {
@@ -18,7 +19,7 @@ class reservationcontroller extends Controller
         return view('pages.reservation');
     }
 
-   
+
 
     /**
      * Store a newly created resource in storage.
@@ -28,9 +29,7 @@ class reservationcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
 
-        ///print_r($request->input());
 
         $request->validate([
            'name' => 'required',
@@ -48,8 +47,13 @@ class reservationcontroller extends Controller
         $post->phonenumber = $request->input('phonenumber');
         $post->date = $request->input('date');
         $post->time = $request->input('time');
+
+        if (Auth::check()) {
+            $post->user_id = Auth::id();
+        }
+
         $post->save();
-        return redirect('/reservation');
+        return redirect('/reservation')->with('success', 'Reservation successful!');
     }
  }
 
