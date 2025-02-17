@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -25,8 +23,9 @@
             </div>
         </div>
 
-        <div style="width: 50%; margin: auto; margin-bottom: 30px;"> <!-- Added margin-bottom here -->
-            {!! $chart->container() !!}
+        <!-- Feedback Pie Chart -->
+        <div style="width: 50%; margin: auto; margin-bottom: 30px;">
+            {!! $feedbackChart->container() !!}
         </div>
     </div>
 </section>
@@ -35,7 +34,7 @@
 
 <section class="ftco-section">
     <div class="container">
-         <!-- Bar Graph Section -->
+        <!-- Bar Graph Section -->
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-7 text-center heading-section ftco-animate">
                 <span class="subheading">Analytics</span>
@@ -45,11 +44,11 @@
         <div style="width: 80%; margin: auto; margin-bottom: 30px;">
             {!! $reservationChart->container() !!}
         </div>
-
-
     </div>
 </section>
+
 <div style="width: 80%; height: 2px; background-color: red; margin: 20px auto;"></div>
+
 <section class="ftco-section">
     <div class="container">
         <!-- Orders Chart Section -->
@@ -59,15 +58,11 @@
                 <h2 class="mb-4">Orders Statistics</h2>
             </div>
         </div>
-        {{-- <div style="width: 80%; margin: auto; margin-bottom: 30px; background-color: #F5DEB3;"> <!-- Warm Beige -->
+        <div style="width: 80%; margin: auto; margin-bottom: 30px;">
             {!! $ordersChart->container() !!}
-        </div> --}}
+        </div>
     </div>
 </section>
-
-
-
-
 
 <footer>
     <div class="container">
@@ -75,8 +70,15 @@
     </div>
 </footer>
 
+<!-- Include Chart.js and ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{{ $chart->script() }}
-{{ $reservationChart->script() }}
-{{-- {{ $ordersChart->script() }} <!-- Added script for orders chart --> --}}
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<!-- Render Chart Scripts -->
+{!! $feedbackChart->script() !!}
+{!! $reservationChart->script() !!}
+{!! $ordersChart->script() !!}
+
+
+
 @endsection

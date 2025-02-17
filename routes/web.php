@@ -11,6 +11,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserHistoryController;
 
 
 
@@ -28,7 +29,6 @@ Route::get('/orders/{order}', [OrderController::class, 'show']); // View a speci
 Route::get('/orders', [OrderController::class, 'index']); // View all orders
 
 
-
 // Reservation
 Route::resource('/reservation', ReservationController::class);
 Route::post('/newres', [ReservationController::class, 'store'])->name('reservation.store');
@@ -39,20 +39,26 @@ Route::post('/newfeedback', [FeedbackController::class, 'store'])->name('feedbac
 
 // Chatbot
 Route::post('/sendchat', [ChatbotController::class, 'SendChat'])->name('chatbot.send');
-Route::get('/chatbot', function () { return view('pages.chatbot'); });
+Route::get('/chatbot', function () {
+    return view('pages.chatbot'); });
+
 //chatbot get data
 Route::get('/reservationsdb', [ChatbotController::class, 'getAllReservations']);
 Route::get('/eventsdb', [ChatbotController::class, 'getAllEvents']);
 Route::get('/offersdb', [ChatbotController::class, 'getAllOffers']);
 Route::get('/productsdb', [ChatbotController::class, 'getAllProducts']);
 
+//user history
+Route::get('/history', [UserHistoryController::class, 'index'])->name('history');
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Admin Routes
 Auth::routes(['register' => false]);
 
+//admin register
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('newregister', [RegisterController::class, 'register'])->name('newregister');
-
+//user register
 Route::get('UserRegister', [RegisterController::class, 'showUserRegistrationForm'])->name('UserRegister');
 Route::post('NewUserRegister', [RegisterController::class, 'registerUser'])->name('createUser');
 
@@ -63,24 +69,24 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Access (Feedback, Reservations, Product, Offers, Events, Statistics)
     //feedback
-        Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
+    Route::resource('/feedbackview', 'App\Http\Controllers\adminfeedbackController');
     //reservations
-        Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
-        Route::get('/reservations/data', [ReservationController::class, 'getReservationsData']);
+    Route::resource('/reservationview', 'App\Http\Controllers\adminreservationController');
+    Route::get('/reservations/data', [ReservationController::class, 'getReservationsData']);
     //product
-        Route::resource('/product', 'App\Http\Controllers\ProductController');
-        Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
-        Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
+    Route::resource('/product', 'App\Http\Controllers\ProductController');
+    Route::post('/newproduct', 'App\Http\Controllers\ProductController@store');
+    Route::get('deletep/{id}', 'App\Http\Controllers\ProductController@destroy');
     //offers
-        Route::resource('/offers', 'App\Http\Controllers\offersController');
-        Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
-        Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
+    Route::resource('/offers', 'App\Http\Controllers\offersController');
+    Route::post('/newoffer', 'App\Http\Controllers\offersController@store');
+    Route::get('delete1/{id}', 'App\Http\Controllers\offersController@destroy');
     //events
-        Route::resource('/events', 'App\Http\Controllers\eventsController');
-        Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
-        Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
+    Route::resource('/events', 'App\Http\Controllers\eventsController');
+    Route::post('/newevent', 'App\Http\Controllers\eventsController@store');
+    Route::get('delete/{id}', 'App\Http\Controllers\eventsController@destroy');
     //statistics
-        Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
+    Route::get('/statistics', [StatisticsController::class, 'statisticsPage'])->name('statistics');
 
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Charts\FeedbackChart; // For the pie chart
+use App\Charts\OrdersChart; // For the orders line chart
 use Illuminate\Http\Request;
 use App\Models\Reservation; // Assuming you have a Reservation model
 use ConsoleTVs\Charts\Classes\Chartjs\Chart; // For the bar graph
@@ -12,7 +13,10 @@ class StatisticsController extends Controller
     public function statisticsPage()
     {
         // Feedback Pie Chart
-        $chart = new FeedbackChart();
+        $feedbackChart = new FeedbackChart();
+
+        // Orders Line Chart
+        $ordersChart = (new OrdersChart())->buildChart();
 
         // Reservation Bar Chart
         $reservations = Reservation::all();
@@ -29,35 +33,36 @@ class StatisticsController extends Controller
         $reservationChart->dataset('Late Night', 'bar', array_column($reservationData, 'late_night'))
                          ->backgroundColor('#556B2F');
 
-       // Configure chart options
-       $reservationChart->options([
-        'responsive' => true,
-        'scales' => [
-            'xAxes' => [
-                [
-                    'stacked' => true,
+        // Configure chart options
+        $reservationChart->options([
+            'responsive' => true,
+            'scales' => [
+                'xAxes' => [
+                    [
+                        'stacked' => true,
+                    ],
+                ],
+                'yAxes' => [
+                    [
+                        'stacked' => true,
+                    ],
                 ],
             ],
-            'yAxes' => [
-                [
-                    'stacked' => true,
+            'layout' => [
+                'padding' => [
+                    'left' => 10,
+                    'right' => 10,
+                    'top' => 10,
+                    'bottom' => 10,
                 ],
             ],
-        ],
-        'layout' => [
-            'padding' => [
-                'left' => 10,
-                'right' => 10,
-                'top' => 10,
-                'bottom' => 10,
-            ],
-        ],
-    ]);
+        ]);
 
-        // Pass both charts to the view
+        // Pass all charts to the view
         return view('pages.statistics', [
-            'chart' => $chart,
-            'reservationChart' => $reservationChart
+            'feedbackChart' => $feedbackChart,
+            'ordersChart' => $ordersChart,
+            'reservationChart' => $reservationChart,
         ]);
     }
 
